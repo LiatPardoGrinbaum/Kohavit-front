@@ -3,6 +3,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import React from "react";
 import { NavHashLink } from "react-router-hash-link";
 import { theme } from "../../theme";
+import logo from "../../assets/logo.png";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -32,6 +33,11 @@ const boxSX = {
   // "&:hover": {
   //   color: "lightblue",
   // },
+};
+const buttonSX = {
+  "&:hover": {
+    color: "white",
+  },
 };
 
 const Navbar = () => {
@@ -73,7 +79,7 @@ const Navbar = () => {
             className="buttonLinkNav"
             component={NavHashLink}
             to="/#contact"
-            sx={{ fontWeight: theme.typography.fontWeightBold }}
+            sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
             activeStyle={{ color: "white" }}
             scroll={(el) => scrollWithOffset(el)}>
             צרי קשר
@@ -83,13 +89,16 @@ const Navbar = () => {
             className="buttonLinkNav"
             component={NavHashLink}
             to="/#aboutMe"
-            sx={{ fontWeight: theme.typography.fontWeightBold }}
+            sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
             activeStyle={{ color: "white" }}
             scroll={(el) => scrollWithOffset(el)}>
             קצת עליי
           </Button>
 
-          <Button className="buttonLinkNav" onClick={handleClick} sx={{ fontWeight: theme.typography.fontWeightBold }}>
+          <Button
+            className="buttonLinkNav"
+            onClick={handleClick}
+            sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}>
             <p>טיפולים</p>
           </Button>
           <Menu
@@ -120,7 +129,7 @@ const Navbar = () => {
             className="buttonLinkNav"
             component={NavHashLink}
             to="/#about"
-            sx={{ fontWeight: theme.typography.fontWeightBold }}
+            sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
             activeStyle={{ color: "white" }}
             scroll={(el) => scrollWithOffset(el)}>
             אודות
@@ -130,15 +139,13 @@ const Navbar = () => {
             className="buttonLinkNav"
             component={NavHashLink}
             to="/#home"
-            sx={{ fontWeight: theme.typography.fontWeightBold }}
+            sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
             activeStyle={{ color: "white" }}
             scroll={(el) => scrollWithOffset(el)}>
             בית
           </Button>
         </Box>
-        <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-          Kohavit LOGO
-        </Typography>
+        <img src={logo} alt="logo" width="150" />
       </StyledToolbar>
       {/*  <Menu
         id="demo-positioned-menu"
