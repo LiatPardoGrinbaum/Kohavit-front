@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <Box minHeight="100vh" bgcolor="#ccc">
       <Container>
-        <Box>Contact</Box>
+        <Box sx={{ padding: "1rem" }}>Contact</Box>
       </Container>
     </Box>
   );

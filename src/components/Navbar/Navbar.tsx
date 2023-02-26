@@ -1,11 +1,13 @@
 import { AppBar, Toolbar, styled, Typography, Button, Box, Menu, MenuItem } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import React from "react";
+import { NavHashLink } from "react-router-hash-link";
+// import { theme } from "../../theme";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
-  backgroundColor: "rgb(42, 42, 154)",
+  backgroundColor: "#bba296",
 });
 
 // const Icons = styled(Box)(({ theme }) => ({
@@ -47,10 +49,29 @@ const Navbar = () => {
           </Typography>
         </CallBox>
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
-          <Button sx={{ color: "white" }}>צרי קשר</Button>
-          <Button sx={{ color: "white" }}>קצת עליי</Button>
-          <Button sx={{ color: "white" }} onClick={handleClick}>
-            טיפולים
+          <Button
+            className="buttonLinkNav"
+            component={NavHashLink}
+            to="/#contact"
+            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}
+            activeStyle={{ color: "white" }}>
+            צרי קשר
+          </Button>
+
+          <Button
+            className="buttonLinkNav"
+            component={NavHashLink}
+            to="/#aboutMe"
+            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}
+            activeStyle={{ color: "white" }}>
+            קצת עליי
+          </Button>
+
+          <Button
+            className="buttonLinkNav"
+            onClick={handleClick}
+            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}>
+            <p>טיפולים</p>
           </Button>
           <Menu
             id="basic-menu"
@@ -75,7 +96,24 @@ const Navbar = () => {
             <MenuItem onClick={handleClose}>איפור קבוע בשפתיים</MenuItem>
             <MenuItem onClick={handleClose}>הדמיית זקיקי שיער ונמשים</MenuItem>
           </Menu>
-          <Button sx={{ color: "white" }}>אודות</Button>
+
+          <Button
+            className="buttonLinkNav"
+            component={NavHashLink}
+            to="/#about"
+            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}
+            activeStyle={{ color: "white" }}>
+            אודות
+          </Button>
+
+          <Button
+            className="buttonLinkNav"
+            component={NavHashLink}
+            to="/#home"
+            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}
+            activeStyle={{ color: "white" }}>
+            בית
+          </Button>
         </Box>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
           Kohavit LOGO

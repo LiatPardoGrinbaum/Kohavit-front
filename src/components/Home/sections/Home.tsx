@@ -3,9 +3,9 @@ import { Box, Container } from "@mui/material";
 
 const Home = () => {
   return (
-    <Box minHeight="100vh" bgcolor="gray">
+    <Box minHeight="100vh" bgcolor="#bba296">
       <Container>
-        <Box>Home</Box>
+        <Box sx={{ padding: "1rem" }}>Home</Box>
       </Container>
     </Box>
   );

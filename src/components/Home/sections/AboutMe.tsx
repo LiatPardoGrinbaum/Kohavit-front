@@ -5,7 +5,7 @@ const AboutMe = () => {
   return (
     <Box minHeight="100vh" bgcolor="lightgreen">
       <Container>
-        <Box>About Me</Box>
+        <Box sx={{ padding: "1rem" }}>About Me</Box>
       </Container>
     </Box>
   );
