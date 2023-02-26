@@ -2,11 +2,12 @@ import { createTheme } from "@mui/material";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#17202e",
-      light: "#d8e1e9",
+      main: "#72574a",
+      light: "#bba296",
     },
     secondary: {
-      main: "#0abeff",
+      main: "#a85856",
+      light: "df9e9e",
     },
 
     error: {
@@ -14,6 +15,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Nunito Sans", sans-serif',
+    fontFamily: ["Assistant", "sans-serif"].join(","),
+    fontSize: 18,
   },
 });

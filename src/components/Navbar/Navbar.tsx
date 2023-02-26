@@ -2,7 +2,7 @@ import { AppBar, Toolbar, styled, Typography, Button, Box, Menu, MenuItem } from
 import PhoneIcon from "@mui/icons-material/Phone";
 import React from "react";
 import { NavHashLink } from "react-router-hash-link";
-// import { theme } from "../../theme";
+import { theme } from "../../theme";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -26,6 +26,14 @@ const CallBox = styled(Box)(({ theme }) => ({
   gap: "20px",
 }));
 
+const boxSX = {
+  textDecoration: "none",
+  color: "white",
+  // "&:hover": {
+  //   color: "lightblue",
+  // },
+};
+
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -36,25 +44,38 @@ const Navbar = () => {
   };
   const open = Boolean(anchorEl);
   // const [open, setOpen] = useState(false);
+
+  const scrollWithOffset = (el: Element) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -60;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  };
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" elevation={0}>
       <StyledToolbar>
         <CallBox>
-          <PhoneIcon color="success" fontSize="medium" />
-          <Typography component="a" href="tel:+9720506225790" sx={{ textDecoration: "none", color: "white" }}>
+          <PhoneIcon color="success" fontSize="medium" href="tel:+9720506225790" sx={{ cursor: "pointer", ...boxSX }} />
+
+          <Typography component="a" href="tel:+9720506225790" sx={boxSX}>
             050-622-5490
           </Typography>
-          <Typography component="a" href="https://wa.me/10524555527" sx={{ textDecoration: "none", color: "white" }}>
-            whatsapp
+          <Typography
+            variant="subtitle1"
+            sx={{ fontSize: theme.typography.fontSize, color: theme.palette.primary.main }}>
+            התקשר/י עכשיו
           </Typography>
+          {/* <Typography component="a" href="https://wa.me/10524555527" sx={{ textDecoration: "none", color: "white" }}>
+            whatsapp
+          </Typography> */}
         </CallBox>
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           <Button
             className="buttonLinkNav"
             component={NavHashLink}
             to="/#contact"
-            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}
-            activeStyle={{ color: "white" }}>
+            sx={{ fontWeight: theme.typography.fontWeightBold }}
+            activeStyle={{ color: "white" }}
+            scroll={(el) => scrollWithOffset(el)}>
             צרי קשר
           </Button>
 
@@ -62,15 +83,13 @@ const Navbar = () => {
             className="buttonLinkNav"
             component={NavHashLink}
             to="/#aboutMe"
-            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}
-            activeStyle={{ color: "white" }}>
+            sx={{ fontWeight: theme.typography.fontWeightBold }}
+            activeStyle={{ color: "white" }}
+            scroll={(el) => scrollWithOffset(el)}>
             קצת עליי
           </Button>
 
-          <Button
-            className="buttonLinkNav"
-            onClick={handleClick}
-            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}>
+          <Button className="buttonLinkNav" onClick={handleClick} sx={{ fontWeight: theme.typography.fontWeightBold }}>
             <p>טיפולים</p>
           </Button>
           <Menu
@@ -101,8 +120,9 @@ const Navbar = () => {
             className="buttonLinkNav"
             component={NavHashLink}
             to="/#about"
-            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}
-            activeStyle={{ color: "white" }}>
+            sx={{ fontWeight: theme.typography.fontWeightBold }}
+            activeStyle={{ color: "white" }}
+            scroll={(el) => scrollWithOffset(el)}>
             אודות
           </Button>
 
@@ -110,8 +130,9 @@ const Navbar = () => {
             className="buttonLinkNav"
             component={NavHashLink}
             to="/#home"
-            sx={{ fontWeight: "bold", fontFamily: `"Assistant", sans-serif`, fontSize: "18px" }}
-            activeStyle={{ color: "white" }}>
+            sx={{ fontWeight: theme.typography.fontWeightBold }}
+            activeStyle={{ color: "white" }}
+            scroll={(el) => scrollWithOffset(el)}>
             בית
           </Button>
         </Box>
