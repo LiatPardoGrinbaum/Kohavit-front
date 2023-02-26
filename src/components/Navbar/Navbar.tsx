@@ -35,7 +35,7 @@ const Navbar = () => {
   const open = Boolean(anchorEl);
   // const [open, setOpen] = useState(false);
   return (
-    <AppBar position="sticky">
+    <AppBar position="fixed">
       <StyledToolbar>
         <CallBox>
           <PhoneIcon color="success" fontSize="medium" />

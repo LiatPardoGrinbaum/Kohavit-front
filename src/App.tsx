@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Box } from "@mui/material";
 import { theme } from "./theme";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
+import HomeMain from "./pages/HomeMain";
 
 const App: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const App: React.FC = () => {
         <Navbar />
 
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={HomeMain} />
 
           {/* <Route path="/eyebrows" component={Eyebrows} />
           <Route path="/lips" component={Lips} />
