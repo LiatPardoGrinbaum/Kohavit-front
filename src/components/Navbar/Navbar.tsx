@@ -1,33 +1,23 @@
 import { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  styled,
-  Typography,
-  Button,
-  Box,
-  Menu,
-  MenuItem,
-  IconButton,
-  useMediaQuery,
-} from "@mui/material";
+import { AppBar, Toolbar, styled, Typography, Button, Box, Menu, MenuItem, IconButton } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
-import { NavHashLink } from "react-router-hash-link";
+
 import { theme } from "../../theme";
 import logo from "../../assets/logo.png";
 import ButtonHashLink from "./ButtonHashLink";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
+import { StyledToolbar } from "./NavbarStyle";
 
-const StyledToolbar = styled(Toolbar)({
-  display: "flex",
-  justifyContent: "space-between",
-  backgroundColor: "#bba296",
-});
+// const StyledToolbar = styled(Toolbar)({
+//   display: "flex",
+//   justifyContent: "space-between",
+//   backgroundColor: theme.palette.primary.light,
+// });
 
 const CallBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -60,20 +50,20 @@ const buttonSX = {
 
 // const pages = [];
 
+//transition for dialog menu
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="down" ref={ref} {...props} />;
+});
+
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   // const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-
-  //transition for dialog menu
-  const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & {
-      children: React.ReactElement<any, any>;
-    },
-    ref: React.Ref<unknown>
-  ) {
-    return <Slide direction="left" ref={ref} {...props} />;
-  });
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -111,19 +101,27 @@ const Navbar = () => {
         </CallBox>
 
         <CustomMenuIcon onClick={onOpenHandler} />
-        <Dialog open={openMobileMenu} fullScreen fullWidth hideBackdrop={true}>
-          <AppBar position="static" sx={{ background: "white", color: "text.primary" }}>
-            <Toolbar>
-              <Typography variant="h5" sx={{ flexGrow: 1 }}>
-                תפריט
-              </Typography>
+        <Dialog
+          open={openMobileMenu}
+          fullScreen
+          fullWidth
+          TransitionComponent={Transition}
+          hideBackdrop={true}
+          PaperProps={{
+            sx: {
+              background: theme.palette.primary.light,
+            },
+          }}>
+          <AppBar position="static" sx={{ background: theme.palette.primary.light, color: "text.primary" }}>
+            <Toolbar sx={{ display: "flex", justifyContent: "space-between", padding: "0.8rem" }}>
               <IconButton color="inherit" onClick={onCloseHandler}>
                 <CloseIcon />
               </IconButton>
+              <Typography variant="h5">תפריט</Typography>
             </Toolbar>
           </AppBar>
-          <ButtonHashLink to="/#contact" text="צרי קשר" />
-          <ButtonHashLink to="/#aboutMe" text="  קצת עליי" />
+          <ButtonHashLink to="/#contact" text="צרי קשר" onClick={onCloseHandler} />
+          <ButtonHashLink to="/#aboutMe" text="  קצת עליי" onClick={onCloseHandler} />
         </Dialog>
 
         <Box sx={{ display: { xs: "none", md: "block" } }}>

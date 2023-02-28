@@ -11,6 +11,7 @@ const buttonSX = {
 type LinkProps = {
   to: string;
   text: string;
+  onClick?: React.MouseEventHandler | undefined;
 };
 
 const ButtonHashLink = (props: LinkProps) => {
@@ -26,7 +27,8 @@ const ButtonHashLink = (props: LinkProps) => {
       to={props.to}
       sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
       activeStyle={{ color: "white" }}
-      scroll={(el) => scrollWithOffset(el)}>
+      scroll={(el) => scrollWithOffset(el)}
+      onClick={props.onClick}>
       {props.text}
     </Button>
   );
