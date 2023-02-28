@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Container, styled, Typography } from "@mui/material";
-import { theme } from "../../../theme";
+// import { theme } from "../../../theme";
 
 const CustomBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -27,7 +27,7 @@ const Title = styled(Typography)(({ theme }) => ({
 
 const Home = () => {
   return (
-    <Box minHeight="100vh" bgcolor="#bba296">
+    <Box height="100vh" bgcolor="#bba296">
       <Container>
         <CustomBox>
           <Box sx={{ flex: "1" }}>
@@ -35,6 +35,7 @@ const Home = () => {
           </Box>
           <Box sx={{ flex: "1", marginTop: "2rem" }}>
             <Title>כשהנדסה פוגשת אומנות</Title>
+            <p>להוסיף למעלה "טיפולים" דרופדאון עם הובר אבל לא של מטריאל. לראות באתר w3school</p>
           </Box>
         </CustomBox>
       </Container>

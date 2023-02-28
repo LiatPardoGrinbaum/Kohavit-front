@@ -1,9 +1,27 @@
-import { AppBar, Toolbar, styled, Typography, Button, Box, Menu, MenuItem } from "@mui/material";
+import { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  styled,
+  Typography,
+  Button,
+  Box,
+  Menu,
+  MenuItem,
+  IconButton,
+  useMediaQuery,
+} from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 import { NavHashLink } from "react-router-hash-link";
 import { theme } from "../../theme";
 import logo from "../../assets/logo.png";
+import ButtonHashLink from "./ButtonHashLink";
+import Dialog from "@mui/material/Dialog";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -11,20 +29,20 @@ const StyledToolbar = styled(Toolbar)({
   backgroundColor: "#bba296",
 });
 
-// const Icons = styled(Box)(({ theme }) => ({
-//   display: "none",
-//   alignItems: "center",
-//   gap: "20px",
-//   //up - if its sm or bigger than it
-//   [theme.breakpoints.up("sm")]: {
-//     display: "flex",
-//   },
-// }));
 const CallBox = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   gap: "20px",
+}));
+
+const CustomMenuIcon = styled(MenuIcon)(({ theme }) => ({
+  cursor: "pointer",
+  display: "none",
+  marginRight: theme.spacing(2),
+  [theme.breakpoints.down("md")]: {
+    display: "block",
+  },
 }));
 
 const boxSX = {
@@ -40,8 +58,23 @@ const buttonSX = {
   },
 };
 
+// const pages = [];
+
 const Navbar = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  // const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
+
+  //transition for dialog menu
+  const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & {
+      children: React.ReactElement<any, any>;
+    },
+    ref: React.Ref<unknown>
+  ) {
+    return <Slide direction="left" ref={ref} {...props} />;
+  });
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -49,17 +82,19 @@ const Navbar = () => {
     setAnchorEl(null);
   };
   const open = Boolean(anchorEl);
-  // const [open, setOpen] = useState(false);
 
-  const scrollWithOffset = (el: Element) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -60;
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  //open function for mobile menu icon
+  const onOpenHandler = () => {
+    setOpenMobileMenu(true);
   };
+  const onCloseHandler = () => {
+    setOpenMobileMenu(false);
+  };
+
   return (
     <AppBar position="fixed" elevation={0}>
       <StyledToolbar>
-        <CallBox>
+        <CallBox sx={{ display: { xs: "none", md: "flex" } }}>
           <PhoneIcon color="success" fontSize="medium" href="tel:+9720506225790" sx={{ cursor: "pointer", ...boxSX }} />
 
           <Typography component="a" href="tel:+9720506225790" sx={boxSX}>
@@ -74,26 +109,26 @@ const Navbar = () => {
             whatsapp
           </Typography> */}
         </CallBox>
-        <Box sx={{ display: { xs: "none", sm: "block" } }}>
-          <Button
-            className="buttonLinkNav"
-            component={NavHashLink}
-            to="/#contact"
-            sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
-            activeStyle={{ color: "white" }}
-            scroll={(el) => scrollWithOffset(el)}>
-            צרי קשר
-          </Button>
 
-          <Button
-            className="buttonLinkNav"
-            component={NavHashLink}
-            to="/#aboutMe"
-            sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
-            activeStyle={{ color: "white" }}
-            scroll={(el) => scrollWithOffset(el)}>
-            קצת עליי
-          </Button>
+        <CustomMenuIcon onClick={onOpenHandler} />
+        <Dialog open={openMobileMenu} fullScreen fullWidth hideBackdrop={true}>
+          <AppBar position="static" sx={{ background: "white", color: "text.primary" }}>
+            <Toolbar>
+              <Typography variant="h5" sx={{ flexGrow: 1 }}>
+                תפריט
+              </Typography>
+              <IconButton color="inherit" onClick={onCloseHandler}>
+                <CloseIcon />
+              </IconButton>
+            </Toolbar>
+          </AppBar>
+          <ButtonHashLink to="/#contact" text="צרי קשר" />
+          <ButtonHashLink to="/#aboutMe" text="  קצת עליי" />
+        </Dialog>
+
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
+          <ButtonHashLink to="/#contact" text="צרי קשר" />
+          <ButtonHashLink to="/#aboutMe" text="  קצת עליי" />
 
           <Button
             className="buttonLinkNav"
@@ -124,26 +159,8 @@ const Navbar = () => {
             <MenuItem onClick={handleClose}>איפור קבוע בשפתיים</MenuItem>
             <MenuItem onClick={handleClose}>הדמיית זקיקי שיער ונמשים</MenuItem>
           </Menu>
-
-          <Button
-            className="buttonLinkNav"
-            component={NavHashLink}
-            to="/#about"
-            sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
-            activeStyle={{ color: "white" }}
-            scroll={(el) => scrollWithOffset(el)}>
-            אודות
-          </Button>
-
-          <Button
-            className="buttonLinkNav"
-            component={NavHashLink}
-            to="/#home"
-            sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
-            activeStyle={{ color: "white" }}
-            scroll={(el) => scrollWithOffset(el)}>
-            בית
-          </Button>
+          <ButtonHashLink to="/#about" text="  אודות" />
+          <ButtonHashLink to="/#home" text="  בית" />
         </Box>
         <img src={logo} alt="logo" width="150" />
       </StyledToolbar>
