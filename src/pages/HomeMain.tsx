@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Toolbar } from "@mui/material";
+import { Box } from "@mui/material";
 import Home from "../components/Home/sections/Home";
 import { SectionIdEnum } from "../types/SectionIdEnum";
 import About from "../components/Home/sections/About";
@@ -28,7 +28,7 @@ const sections = [
 const HomeMain = () => {
   return (
     <Box minHeight="100vh" bgcolor="white">
-      <Toolbar />
+      {/* <Toolbar /> */}
       {sections.map((section) => {
         return (
           <Box id={section.sectionId} key={section.sectionId}>
