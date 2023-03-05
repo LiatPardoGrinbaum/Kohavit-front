@@ -7,7 +7,7 @@ export const theme = createTheme({
     },
     secondary: {
       main: "#a85856",
-      light: "df9e9e",
+      light: "#df9e9e",
     },
 
     error: {

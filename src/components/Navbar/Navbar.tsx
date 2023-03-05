@@ -124,7 +124,7 @@ const Navbar = () => {
           <ButtonHashLink to="/#aboutMe" text="  קצת עליי" onClick={onCloseHandler} />
         </Dialog>
 
-        <Box sx={{ display: { xs: "none", md: "block" } }}>
+        <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <ButtonHashLink to="/#contact" text="צרי קשר" />
           <ButtonHashLink to="/#aboutMe" text="  קצת עליי" />
 
