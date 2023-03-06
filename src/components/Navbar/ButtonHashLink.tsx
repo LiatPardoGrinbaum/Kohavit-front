@@ -3,8 +3,9 @@ import { theme } from "../../theme";
 import { NavHashLink } from "react-router-hash-link";
 
 const buttonSX = {
+  color: "white",
   "&:hover": {
-    color: "white",
+    color: theme.palette.primary.main,
   },
 };
 
@@ -26,7 +27,7 @@ const ButtonHashLink = (props: LinkProps) => {
       component={NavHashLink}
       to={props.to}
       sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
-      activeStyle={{ color: "white" }}
+      activeStyle={{ color: theme.palette.primary.main }}
       scroll={(el) => scrollWithOffset(el)}
       onClick={props.onClick}>
       {props.text}
@@ -35,3 +36,17 @@ const ButtonHashLink = (props: LinkProps) => {
 };
 
 export default ButtonHashLink;
+
+//other style to button active (need to change in Navbar comp in buttonSx as well)
+/*   
+  <Button
+      className="buttonLinkNav"
+      component={NavHashLink}
+      to={props.to}
+      sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
+      activeStyle={{ color: "white", background: theme.palette.secondary.main }}
+      scroll={(el) => scrollWithOffset(el)}
+      onClick={props.onClick}>
+      {props.text}
+    </Button>
+     */

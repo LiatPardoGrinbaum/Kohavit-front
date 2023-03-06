@@ -52,7 +52,7 @@ const Home = () => {
         // paddingTop: "2rem",
         display: "flex",
         justifyContent: "center",
-        alignItems: "fle-start",
+        alignItems: "center",
       }}>
       <CustomBox>
         <Box
@@ -87,7 +87,13 @@ const Home = () => {
           </Title>
           <br></br>
           <DividerStars />
-          <Button variant="contained" sx={{ backgroundColor: "#f7347e", marginTop: "1.2rem", width: "300px" }}>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "secondary.main",
+              marginTop: "1.2rem",
+              width: "300px",
+            }}>
             <Typography
               component="a"
               href="tel:+9720506225790"

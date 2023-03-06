@@ -61,8 +61,9 @@ const boxSX = {
   // },
 };
 const buttonSX = {
+  color: "white",
   "&:hover": {
-    color: "white",
+    color: "primary.main",
   },
 };
 const buttonListSx = {
