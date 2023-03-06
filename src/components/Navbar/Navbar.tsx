@@ -1,5 +1,19 @@
 import { useState } from "react";
-import { AppBar, Toolbar, styled, Typography, Button, Box, Menu, MenuItem, IconButton } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  styled,
+  Typography,
+  Button,
+  Box,
+  Menu,
+  MenuItem,
+  IconButton,
+  List,
+  ListItemButton,
+  ListItemText,
+  Collapse,
+} from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -12,6 +26,10 @@ import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import { StyledToolbar } from "./NavbarStyle";
+import { Link } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 // const StyledToolbar = styled(Toolbar)({
 //   display: "flex",
@@ -47,6 +65,14 @@ const buttonSX = {
     color: "white",
   },
 };
+const buttonListSx = {
+  color: "primary.main",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+  padding: "0",
+};
 
 // const pages = [];
 
@@ -64,6 +90,7 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   // const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
+  const [openNestedList, setOpenNestedList] = useState(false);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -81,6 +108,10 @@ const Navbar = () => {
     setOpenMobileMenu(false);
   };
 
+  const handleClickNested = () => {
+    setOpenNestedList(!openNestedList);
+  };
+
   return (
     <AppBar position="fixed" elevation={0}>
       <StyledToolbar>
@@ -93,7 +124,7 @@ const Navbar = () => {
           <Typography
             variant="subtitle1"
             sx={{ fontSize: theme.typography.fontSize, color: theme.palette.primary.main }}>
-            התקשר/י עכשיו
+            {/* התקשר/י עכשיו */}
           </Typography>
           {/* <Typography component="a" href="https://wa.me/10524555527" sx={{ textDecoration: "none", color: "white" }}>
             whatsapp
@@ -120,6 +151,43 @@ const Navbar = () => {
               <Typography variant="h5">תפריט</Typography>
             </Toolbar>
           </AppBar>
+          <List>
+            <ListItemButton onClick={handleClickNested} sx={{ ...buttonListSx, ...buttonSX }}>
+              <ListItemText primary="טיפולים" />
+              {openNestedList ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={openNestedList} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton
+                  component={Link}
+                  to="/"
+                  onClick={onCloseHandler}
+                  sx={{ ...buttonListSx, ...buttonSX, pr: 3 }}>
+                  <ListItemText primary="איפור קבוע בגבות" />
+                </ListItemButton>
+                <ListItemButton
+                  component={Link}
+                  to="/"
+                  onClick={onCloseHandler}
+                  sx={{ ...buttonListSx, ...buttonSX, pr: 3 }}>
+                  <ListItemText primary="איפור קבוע בשפתיים" />
+                </ListItemButton>
+                <ListItemButton
+                  component={Link}
+                  to="/"
+                  onClick={onCloseHandler}
+                  sx={{ ...buttonListSx, ...buttonSX, pr: 3 }}>
+                  <ListItemText primary="הדמיית זקיקי שיער ונמשים" />
+                </ListItemButton>
+              </List>
+            </Collapse>
+            <ListItemButton component={Link} to="/" onClick={onCloseHandler} sx={{ ...buttonListSx, ...buttonSX }}>
+              <ListItemText primary="בית" />
+            </ListItemButton>
+            <ListItemButton component={Link} to="/" onClick={onCloseHandler} sx={{ ...buttonListSx, ...buttonSX }}>
+              <ListItemText primary="בית" />
+            </ListItemButton>
+          </List>
           <ButtonHashLink to="/#contact" text="צרי קשר" onClick={onCloseHandler} />
           <ButtonHashLink to="/#aboutMe" text="  קצת עליי" onClick={onCloseHandler} />
         </Dialog>
