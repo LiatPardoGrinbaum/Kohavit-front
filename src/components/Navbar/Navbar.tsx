@@ -27,7 +27,7 @@ import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import { StyledToolbar } from "./NavbarStyle";
 import { Link } from "react-router-dom";
-import { NavHashLink } from "react-router-hash-link";
+// import { NavHashLink } from "react-router-hash-link";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 

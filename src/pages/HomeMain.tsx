@@ -27,7 +27,7 @@ const sections = [
 
 const HomeMain = () => {
   return (
-    <Box minHeight="100vh" bgcolor="white">
+    <Box minHeight="100vh" bgcolor="white" width="100%" sx={{ display: "flex", flexDirection: "column" }}>
       {/* <Toolbar /> */}
       {sections.map((section) => {
         return (
