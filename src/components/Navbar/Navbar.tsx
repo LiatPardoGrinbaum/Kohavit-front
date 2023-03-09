@@ -107,6 +107,7 @@ const Navbar = () => {
         <CustomMenuIcon onClick={onOpenHandler} />
         <Dialog
           open={openMobileMenu}
+          fullScreen
           fullWidth
           TransitionComponent={Transition}
           hideBackdrop={true}
