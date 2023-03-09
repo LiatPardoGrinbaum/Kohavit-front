@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   AppBar,
   Toolbar,
-  styled,
   Typography,
   Button,
   Box,
@@ -15,7 +14,7 @@ import {
   Collapse,
 } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
-import MenuIcon from "@mui/icons-material/Menu";
+
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 
@@ -25,47 +24,24 @@ import ButtonHashLink from "./ButtonHashLink";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
-import { StyledToolbar } from "./NavbarStyle";
+import { StyledToolbar, CallBox, CustomMenuIcon } from "./styles";
 import { Link } from "react-router-dom";
 // import { NavHashLink } from "react-router-hash-link";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
-// const StyledToolbar = styled(Toolbar)({
-//   display: "flex",
-//   justifyContent: "space-between",
-//   backgroundColor: theme.palette.primary.light,
-// });
-
-const CallBox = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  gap: "20px",
-}));
-
-const CustomMenuIcon = styled(MenuIcon)(({ theme }) => ({
-  cursor: "pointer",
-  display: "none",
-  marginRight: theme.spacing(2),
-  [theme.breakpoints.down("md")]: {
-    display: "block",
-  },
-}));
-
 const boxSX = {
   textDecoration: "none",
   color: "white",
-  // "&:hover": {
-  //   color: "lightblue",
-  // },
 };
+
 const buttonSX = {
   color: "white",
   "&:hover": {
     color: "primary.main",
   },
 };
+
 const buttonListSx = {
   color: "primary.main",
   display: "flex",
@@ -74,8 +50,6 @@ const buttonListSx = {
   textAlign: "center",
   padding: "0",
 };
-
-// const pages = [];
 
 //transition for dialog menu
 const Transition = React.forwardRef(function Transition(
@@ -90,7 +64,6 @@ const Transition = React.forwardRef(function Transition(
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
-  // const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
   const [openNestedList, setOpenNestedList] = useState(false);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -118,7 +91,6 @@ const Navbar = () => {
       <StyledToolbar>
         <CallBox sx={{ display: { xs: "none", md: "flex" } }}>
           <PhoneIcon color="success" fontSize="medium" href="tel:+9720506225790" sx={{ cursor: "pointer", ...boxSX }} />
-
           <Typography component="a" href="tel:+9720506225790" sx={boxSX}>
             050-622-5490
           </Typography>
@@ -135,7 +107,6 @@ const Navbar = () => {
         <CustomMenuIcon onClick={onOpenHandler} />
         <Dialog
           open={openMobileMenu}
-          fullScreen
           fullWidth
           TransitionComponent={Transition}
           hideBackdrop={true}
@@ -231,23 +202,6 @@ const Navbar = () => {
         </Box>
         <img src={logo} alt="logo" width="150" />
       </StyledToolbar>
-      {/*  <Menu
-        id="demo-positioned-menu"
-        aria-labelledby="demo-positioned-button"
-        open={open}
-        onClose={(e) => setOpen(false)}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}>
-        <MenuItem>Profile</MenuItem>
-        <MenuItem>My account</MenuItem>
-        <MenuItem>Logout</MenuItem>
-      </Menu> */}
     </AppBar>
   );
 };
