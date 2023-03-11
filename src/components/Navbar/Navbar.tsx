@@ -87,7 +87,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="fixed" elevation={0}>
+    <AppBar position="fixed" elevation={0} sx={{ background: theme.palette.primary.light, paddingRight: "16px" }}>
       <StyledToolbar>
         <CallBox sx={{ display: { xs: "none", md: "flex" } }}>
           <PhoneIcon color="success" fontSize="medium" href="tel:+9720506225790" sx={{ cursor: "pointer", ...boxSX }} />
@@ -107,8 +107,9 @@ const Navbar = () => {
         <CustomMenuIcon onClick={onOpenHandler} />
         <Dialog
           open={openMobileMenu}
-          fullScreen
           fullWidth
+          fullScreen
+          disableScrollLock={true}
           TransitionComponent={Transition}
           hideBackdrop={true}
           PaperProps={{

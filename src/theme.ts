@@ -17,6 +17,6 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: ["Assistant", "sans-serif"].join(","),
-    fontSize: 18,
+    fontSize: 20,
   },
 });

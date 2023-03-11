@@ -6,6 +6,7 @@ export const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
   backgroundColor: theme.palette.primary.light,
+  paddingRight: "0",
 });
 
 export const CallBox = styled(Box)(({ theme }) => ({

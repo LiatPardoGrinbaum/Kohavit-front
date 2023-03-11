@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, styled, Button, Typography } from "@mui/material";
-// import { theme } from "../../../theme";
+import { theme } from "../../../theme";
 import Title from "../../../styles/Title";
 import bgHome from "../../../assets/homebgstars.png";
 import homephoto from "../../../assets/homephoto.png";
 // import homephoto2 from "../../../assets/homephoto2.jpg";
 import "../../Home/style.css";
 import DividerStars from "../../Divider/DividerStars";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 const CustomBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -89,10 +90,15 @@ const Home = () => {
           <DividerStars />
           <Button
             variant="contained"
+            component="a"
+            href="tel:+9720506225790"
             sx={{
               backgroundColor: "secondary.main",
               marginTop: "1.2rem",
               width: "300px",
+              [theme.breakpoints.down("sm")]: {
+                width: "210px",
+              },
             }}>
             <Typography
               component="a"
@@ -104,16 +110,29 @@ const Home = () => {
                 marginLeft: "0.7rem",
                 textDecoration: "none",
                 color: "white",
+                [theme.breakpoints.down("sm")]: {
+                  display: "none",
+                },
               }}>
               התקשר\י עכשיו
             </Typography>
+
             <Typography
-              component="a"
-              href="tel:+9720506225790"
               color="praimary.main"
               sx={{ fontSize: "1.4rem", display: "inline", textDecoration: "none", color: "white" }}>
               050-622-5490
             </Typography>
+            <PhoneIcon
+              color="success"
+              fontSize="medium"
+              sx={{
+                color: "white",
+                marginRight: "10px",
+                [theme.breakpoints.up("sm")]: {
+                  display: "none",
+                },
+              }}
+            />
           </Button>
         </Box>
       </CustomBox>
