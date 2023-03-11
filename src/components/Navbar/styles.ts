@@ -5,8 +5,11 @@ import { theme } from "../../theme";
 export const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
-  backgroundColor: theme.palette.primary.light,
+  backgroundColor: "theme.palette.primary.light",
   paddingRight: "0",
+  [theme.breakpoints.down("sm")]: {
+    paddingRight: "16px",
+  },
 });
 
 export const CallBox = styled(Box)(({ theme }) => ({

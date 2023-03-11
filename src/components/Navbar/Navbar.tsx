@@ -65,6 +65,16 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [openNestedList, setOpenNestedList] = useState(false);
+  const [navbarStyleScroll, setNavbarStyleScroll] = useState(false);
+
+  window.addEventListener("scroll", changeNavbarStyle);
+  function changeNavbarStyle() {
+    if (window.scrollY >= 150) {
+      setNavbarStyleScroll(true);
+    } else {
+      setNavbarStyleScroll(false);
+    }
+  }
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -87,9 +97,22 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="fixed" elevation={0} sx={{ background: theme.palette.primary.light, paddingRight: "16px" }}>
+    <AppBar
+      position="fixed"
+      elevation={0}
+      sx={{
+        background: theme.palette.primary.light,
+
+        // [theme.breakpoints.down("sm")]: {
+        //   paddingRight: "16px",
+        // },
+        transition: "0.5s",
+      }}>
       <StyledToolbar>
-        <CallBox sx={{ display: { xs: "none", md: "flex" } }}>
+        <CallBox
+          sx={{
+            display: { xs: "none", md: "flex" },
+          }}>
           <PhoneIcon color="success" fontSize="medium" href="tel:+9720506225790" sx={{ cursor: "pointer", ...boxSX }} />
           <Typography component="a" href="tel:+9720506225790" sx={boxSX}>
             050-622-5490
@@ -117,7 +140,12 @@ const Navbar = () => {
               background: theme.palette.primary.light,
             },
           }}>
-          <AppBar position="static" sx={{ background: theme.palette.primary.light, color: "text.primary" }}>
+          <AppBar
+            position="static"
+            sx={{
+              background: theme.palette.primary.light,
+              color: "text.primary",
+            }}>
             <Toolbar sx={{ display: "flex", justifyContent: "space-between", padding: "0.8rem" }}>
               <IconButton color="inherit" onClick={onCloseHandler}>
                 <CloseIcon />
