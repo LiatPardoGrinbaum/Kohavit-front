@@ -4,16 +4,17 @@ import { theme } from "../../../theme";
 import Title from "../../../styles/Title";
 // import bgHome from "../../../assets/homebgstars.png";
 import homephoto from "../../../assets/homephoto2.jpg";
+import title from "../../../assets/maintitle.png";
 // import homephoto2 from "../../../assets/homephoto2.jpg";
 import "../../Home/style.css";
-import DividerStars from "../../Divider/DividerStars";
+// import DividerStars from "../../Divider/DividerStars";
 import PhoneIcon from "@mui/icons-material/Phone";
 
 const CustomBox = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  // gap: theme.spacing(5),
+  gap: theme.spacing(5),
   direction: "rtl",
   textAlign: "center",
   width: "80%",
@@ -21,7 +22,7 @@ const CustomBox = styled(Box)(({ theme }) => ({
   // padding: theme.spacing(0, 4, 0, 4),
   padding: "0",
   marginTop: "65px",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
     flexDirection: "column-reverse",
     alignItems: "center",
     textAlign: "center",
@@ -60,7 +61,7 @@ const Home = () => {
       <CustomBox>
         <Box
           sx={{
-            width: { xs: "350px", sm: "550px" },
+            width: { xs: "350px", sm: "500px" },
             maxWidth: "100%",
             zIndex: "1",
             overflowY: "hidden",
@@ -71,17 +72,26 @@ const Home = () => {
         <Box
           sx={{
             zIndex: "1",
-            width: "55%",
+            maxWidth: "100%",
+            width: { xs: "100%", lg: "60%" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
             paddingTop: "4rem",
           }}>
-          <Title fontColor="black" fontSize="2.5rem" fontFamily={`'Secular One', sans-serif`}>
-            כשהנדסה פוגשת אומנות
-          </Title>
-          <DividerStars />
+          <Box
+            sx={{
+              width: "450px",
+              maxWidth: "100%",
+              zIndex: "1",
+              overflowY: "hidden",
+            }}
+            className="imgTitleContainer">
+            <img src={title} alt="main title" />
+          </Box>
+
+          {/* <DividerStars /> */}
           <Title fontColor="black" fontSize="2.5rem">
             כוכבית פרדו - אמנית איפור קבוע
           </Title>
@@ -89,7 +99,7 @@ const Home = () => {
             איפור קבוע | נמשים | שפתיים | גבות
           </Title>
           <br></br>
-          <DividerStars />
+          {/* <DividerStars /> */}
           <Button
             variant="contained"
             component="a"

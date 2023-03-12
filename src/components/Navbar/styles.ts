@@ -23,6 +23,7 @@ export const CallBox = styled(Box)(({ theme }) => ({
 export const CustomMenuIcon = styled(MenuIcon)(({ theme }) => ({
   cursor: "pointer",
   display: "none",
+  color: "black",
   marginRight: theme.spacing(2),
   [theme.breakpoints.down("md")]: {
     display: "block",

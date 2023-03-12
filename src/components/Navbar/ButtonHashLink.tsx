@@ -6,8 +6,9 @@ const buttonSX = {
   color: "black",
   padding: "0px 10px",
   height: "40px",
+  fontWeight: theme.typography.fontWeightBold,
   "&:hover": {
-    color: theme.palette.primary.main,
+    color: "white",
   },
 };
 
@@ -28,7 +29,7 @@ const ButtonHashLink = (props: LinkProps) => {
       className="buttonLinkNav"
       component={NavHashLink}
       to={props.to}
-      sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
+      sx={buttonSX}
       activeStyle={{ color: "white", background: theme.palette.primary.light }}
       scroll={(el) => scrollWithOffset(el)}
       onClick={props.onClick}>

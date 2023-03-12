@@ -5,10 +5,10 @@ export const theme = createTheme({
       // main: "#72574a",
       // main: "#703b39",
       main: "#ad608c",
-      light: "#bba296",
+      light: "#cc7c9f",
     },
     secondary: {
-      main: "#a85856",
+      main: "#bba296",
       light: "#df9e9e",
     },
 

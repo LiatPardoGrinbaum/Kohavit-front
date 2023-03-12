@@ -8,10 +8,10 @@ import {
   Menu,
   MenuItem,
   IconButton,
-  List,
-  ListItemButton,
-  ListItemText,
-  Collapse,
+  // List,
+  // ListItemButton,
+  // ListItemText,
+  // Collapse,
 } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 
@@ -19,16 +19,16 @@ import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 
 import { theme } from "../../theme";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo3.png";
 import ButtonHashLink from "./ButtonHashLink";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import { StyledToolbar, CallBox, CustomMenuIcon } from "./styles";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import { NavHashLink } from "react-router-hash-link";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
+// import ExpandLess from "@mui/icons-material/ExpandLess";
+// import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const boxSX = {
   textDecoration: "none",
@@ -44,14 +44,20 @@ const buttonSX = {
   },
 };
 
-const buttonListSx = {
-  color: "primary.main",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  textAlign: "center",
-  padding: "0",
-};
+// const buttonListSx = {
+//   // color: theme.palette.secondary.main,
+//   display: "flex",
+//   justifyContent: "center",
+//   alignItems: "center",
+//   textAlign: "center",
+//   padding: "0",
+//   color: "black",
+//   // padding: "0px 10px",
+//   height: "40px",
+//   "&:hover": {
+//     color: "primary.main",
+//   },
+// };
 
 //transition for dialog menu
 const Transition = React.forwardRef(function Transition(
@@ -66,7 +72,7 @@ const Transition = React.forwardRef(function Transition(
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
-  const [openNestedList, setOpenNestedList] = useState(false);
+  // const [openNestedList, setOpenNestedList] = useState(false);
   const [navbarStyleScroll, setNavbarStyleScroll] = useState(false);
 
   window.addEventListener("scroll", changeNavbarStyle);
@@ -94,9 +100,9 @@ const Navbar = () => {
     setOpenMobileMenu(false);
   };
 
-  const handleClickNested = () => {
-    setOpenNestedList(!openNestedList);
-  };
+  // const handleClickNested = () => {
+  //   setOpenNestedList(!openNestedList);
+  // };
 
   return (
     <AppBar
@@ -139,13 +145,13 @@ const Navbar = () => {
           hideBackdrop={true}
           PaperProps={{
             sx: {
-              background: theme.palette.primary.light,
+              background: theme.palette.secondary.main,
             },
           }}>
           <AppBar
             position="static"
             sx={{
-              background: theme.palette.primary.light,
+              background: theme.palette.secondary.main,
               color: "text.primary",
             }}>
             <Toolbar sx={{ display: "flex", justifyContent: "space-between", padding: "0.8rem" }}>
@@ -155,8 +161,59 @@ const Navbar = () => {
               <Typography variant="h5">תפריט</Typography>
             </Toolbar>
           </AppBar>
+
+          <Box display="flex" flexDirection="column">
+            <ButtonHashLink to="/#home" text="בית" onClick={onCloseHandler} />
+            <ButtonHashLink to="/#about" text=" אודות " onClick={onCloseHandler} />
+            <ButtonHashLink to="/#treatments" text=" טיפולים " onClick={onCloseHandler} />
+            <ButtonHashLink to="/#contact" text="צרי קשר" onClick={onCloseHandler} />
+            <ButtonHashLink to="/#aboutMe" text="  קצת עליי" onClick={onCloseHandler} />
+          </Box>
+        </Dialog>
+
+        {/* <Dialog
+          open={openMobileMenu}
+          fullWidth
+          fullScreen
+          disableScrollLock={true}
+          TransitionComponent={Transition}
+          hideBackdrop={true}
+          PaperProps={{
+            sx: {
+              background: theme.palette.secondary.main,
+            },
+          }}>
+          <AppBar
+            position="static"
+            sx={{
+              background: theme.palette.secondary.main,
+              color: "text.primary",
+            }}>
+            <Toolbar sx={{ display: "flex", justifyContent: "space-between", padding: "0.8rem" }}>
+              <IconButton color="inherit" onClick={onCloseHandler}>
+                <CloseIcon />
+              </IconButton>
+              <Typography variant="h5">תפריט</Typography>
+            </Toolbar>
+          </AppBar>
+
           <List>
-            <ListItemButton onClick={handleClickNested} sx={{ ...buttonListSx, ...buttonSX }}>
+            <Box display="flex" flexDirection="column">
+              <ButtonHashLink to="/#home" text="בית" onClick={onCloseHandler} />
+              <ButtonHashLink to="/#about" text=" אודות " onClick={onCloseHandler} />
+            </Box>
+            <ListItemButton
+              onClick={handleClickNested}
+              sx={{
+                color: "black",
+                fontSize: "20px",
+                padding: "0px 10px",
+                height: "40px",
+                fontWeight: "bold",
+                "&:hover": {
+                  color: "white",
+                },
+              }}>
               <ListItemText primary="טיפולים" />
               {openNestedList ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
@@ -185,16 +242,14 @@ const Navbar = () => {
                 </ListItemButton>
               </List>
             </Collapse>
-            <ListItemButton component={Link} to="/" onClick={onCloseHandler} sx={{ ...buttonListSx, ...buttonSX }}>
-              <ListItemText primary="בית" />
-            </ListItemButton>
-            <ListItemButton component={Link} to="/" onClick={onCloseHandler} sx={{ ...buttonListSx, ...buttonSX }}>
-              <ListItemText primary="בית" />
-            </ListItemButton>
+
+            <Box display="flex" flexDirection="column">
+              <ButtonHashLink to="/#contact" text="צרי קשר" onClick={onCloseHandler} />
+              <ButtonHashLink to="/#aboutMe" text="  קצת עליי" onClick={onCloseHandler} />
+            </Box>
           </List>
-          <ButtonHashLink to="/#contact" text="צרי קשר" onClick={onCloseHandler} />
-          <ButtonHashLink to="/#aboutMe" text="  קצת עליי" onClick={onCloseHandler} />
         </Dialog>
+      */}
 
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <ButtonHashLink to="/#contact" text="צרי קשר" />
