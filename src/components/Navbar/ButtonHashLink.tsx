@@ -3,7 +3,9 @@ import { theme } from "../../theme";
 import { NavHashLink } from "react-router-hash-link";
 
 const buttonSX = {
-  color: "white",
+  color: "black",
+  padding: "0px 10px",
+  height: "40px",
   "&:hover": {
     color: theme.palette.primary.main,
   },
@@ -27,7 +29,7 @@ const ButtonHashLink = (props: LinkProps) => {
       component={NavHashLink}
       to={props.to}
       sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}
-      activeStyle={{ color: theme.palette.primary.main }}
+      activeStyle={{ color: "white", background: theme.palette.primary.light }}
       scroll={(el) => scrollWithOffset(el)}
       onClick={props.onClick}>
       {props.text}

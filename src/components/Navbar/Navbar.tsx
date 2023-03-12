@@ -32,11 +32,13 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const boxSX = {
   textDecoration: "none",
-  color: "white",
+  color: "black",
 };
 
 const buttonSX = {
-  color: "white",
+  color: "black",
+  padding: "0px 10px",
+  height: "40px",
   "&:hover": {
     color: "primary.main",
   },
@@ -99,10 +101,10 @@ const Navbar = () => {
   return (
     <AppBar
       position="fixed"
-      elevation={0}
+      elevation={navbarStyleScroll ? 3 : 0}
       sx={{
-        background: theme.palette.primary.light,
-
+        background: "#ffffffae",
+        padding: navbarStyleScroll ? "0px 0px" : "18px 0px",
         // [theme.breakpoints.down("sm")]: {
         //   paddingRight: "16px",
         // },

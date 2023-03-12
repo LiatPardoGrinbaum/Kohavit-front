@@ -2,8 +2,8 @@ import React from "react";
 import { Box, styled, Button, Typography } from "@mui/material";
 import { theme } from "../../../theme";
 import Title from "../../../styles/Title";
-import bgHome from "../../../assets/homebgstars.png";
-import homephoto from "../../../assets/homephoto.png";
+// import bgHome from "../../../assets/homebgstars.png";
+import homephoto from "../../../assets/homephoto2.jpg";
 // import homephoto2 from "../../../assets/homephoto2.jpg";
 import "../../Home/style.css";
 import DividerStars from "../../Divider/DividerStars";
@@ -16,31 +16,32 @@ const CustomBox = styled(Box)(({ theme }) => ({
   // gap: theme.spacing(5),
   direction: "rtl",
   textAlign: "center",
-  width: "90%",
+  width: "80%",
 
   // padding: theme.spacing(0, 4, 0, 4),
   padding: "0",
+  marginTop: "65px",
   [theme.breakpoints.down("md")]: {
     flexDirection: "column-reverse",
     alignItems: "center",
     textAlign: "center",
   },
 }));
-const StarsBgBox = styled(Box)(({ theme }) => ({
-  height: "500px",
-  width: "70%",
-  position: "absolute",
-  zIndex: "0",
-  bottom: "0",
-  left: "0",
-  backgroundColor: "primary.light",
-  [theme.breakpoints.up("md")]: {
-    backgroundImage: `URL(${bgHome}) `,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "0% 100%",
-  },
-}));
+// const StarsBgBox = styled(Box)(({ theme }) => ({
+//   height: "500px",
+//   width: "70%",
+//   position: "absolute",
+//   zIndex: "0",
+//   bottom: "0",
+//   left: "0",
+//   backgroundColor: "primary.light",
+//   [theme.breakpoints.up("md")]: {
+//     backgroundImage: `URL(${bgHome}) `,
+//     backgroundSize: "cover",
+//     backgroundRepeat: "no-repeat",
+//     backgroundPosition: "0% 100%",
+//   },
+// }));
 
 const Home = () => {
   return (
@@ -49,7 +50,8 @@ const Home = () => {
       width="100%"
       sx={{
         position: "relative",
-        backgroundColor: "primary.light",
+        // backgroundColor: "primary.light",
+        backgroundImage: "linear-gradient(to right, #bba296 0%, white 100%)",
         // paddingTop: "2rem",
         display: "flex",
         justifyContent: "center",
@@ -58,7 +60,7 @@ const Home = () => {
       <CustomBox>
         <Box
           sx={{
-            width: { xs: "350px", sm: "650px" },
+            width: { xs: "350px", sm: "550px" },
             maxWidth: "100%",
             zIndex: "1",
             overflowY: "hidden",
@@ -76,14 +78,14 @@ const Home = () => {
             flexDirection: "column",
             paddingTop: "4rem",
           }}>
-          <Title fontColor="white" fontSize="2.5rem" fontFamily={`'Secular One', sans-serif`}>
+          <Title fontColor="black" fontSize="2.5rem" fontFamily={`'Secular One', sans-serif`}>
             כשהנדסה פוגשת אומנות
           </Title>
           <DividerStars />
-          <Title fontColor="white" fontSize="2.5rem">
+          <Title fontColor="black" fontSize="2.5rem">
             כוכבית פרדו - אמנית איפור קבוע
           </Title>
-          <Title fontColor="white" fontSize="1.5rem">
+          <Title fontColor="black" fontSize="1.5rem">
             איפור קבוע | נמשים | שפתיים | גבות
           </Title>
           <br></br>
@@ -93,7 +95,7 @@ const Home = () => {
             component="a"
             href="tel:+9720506225790"
             sx={{
-              backgroundColor: "secondary.main",
+              backgroundColor: "primary.light",
               marginTop: "1.2rem",
               width: "300px",
               [theme.breakpoints.down("sm")]: {
@@ -103,7 +105,7 @@ const Home = () => {
             <Typography
               component="a"
               href="tel:+9720506225790"
-              color="praimary.main"
+              color="primary.main"
               sx={{
                 fontSize: "1.3rem",
                 display: "inline",
@@ -137,7 +139,7 @@ const Home = () => {
         </Box>
       </CustomBox>
 
-      <StarsBgBox />
+      {/* <StarsBgBox /> */}
     </Box>
   );
 };

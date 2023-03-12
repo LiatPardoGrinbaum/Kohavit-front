@@ -5,7 +5,8 @@ import { theme } from "../../theme";
 export const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
-  backgroundColor: "theme.palette.primary.light",
+  // backgroundColor: "white",
+  backgroundColor: "transparent",
   paddingRight: "0",
   [theme.breakpoints.down("sm")]: {
     paddingRight: "16px",
