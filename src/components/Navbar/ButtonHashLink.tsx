@@ -8,7 +8,7 @@ const buttonSX = {
   height: "40px",
   fontWeight: theme.typography.fontWeightBold,
   "&:hover": {
-    color: "white",
+    color: theme.palette.primary.main,
   },
 };
 

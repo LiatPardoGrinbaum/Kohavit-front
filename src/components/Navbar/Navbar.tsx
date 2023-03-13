@@ -3,10 +3,10 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
+  // Button,
   Box,
-  Menu,
-  MenuItem,
+  // Menu,
+  // MenuItem,
   IconButton,
   // List,
   // ListItemButton,
@@ -25,6 +25,7 @@ import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import { StyledToolbar, CallBox, CustomMenuIcon } from "./styles";
+import { NavHashLink } from "react-router-hash-link";
 // import { Link } from "react-router-dom";
 // import { NavHashLink } from "react-router-hash-link";
 // import ExpandLess from "@mui/icons-material/ExpandLess";
@@ -35,14 +36,14 @@ const boxSX = {
   color: "black",
 };
 
-const buttonSX = {
-  color: "black",
-  padding: "0px 10px",
-  height: "40px",
-  "&:hover": {
-    color: "primary.main",
-  },
-};
+// const buttonSX = {
+//   color: "black",
+//   padding: "0px 10px",
+//   height: "40px",
+//   "&:hover": {
+//     color: "primary.main",
+//   },
+// };
 
 // const buttonListSx = {
 //   // color: theme.palette.secondary.main,
@@ -70,7 +71,7 @@ const Transition = React.forwardRef(function Transition(
 });
 
 const Navbar = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  // const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   // const [openNestedList, setOpenNestedList] = useState(false);
   const [navbarStyleScroll, setNavbarStyleScroll] = useState(false);
@@ -84,13 +85,13 @@ const Navbar = () => {
     }
   }
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const open = Boolean(anchorEl);
+  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
+  // const open = Boolean(anchorEl);
 
   //open function for mobile menu icon
   const onOpenHandler = () => {
@@ -120,6 +121,11 @@ const Navbar = () => {
         <CallBox
           sx={{
             display: { xs: "none", md: "flex" },
+            gap: "10px",
+            transition: "0.5s",
+            "&:hover": {
+              transform: "scale(1.1)",
+            },
           }}>
           <PhoneIcon color="success" fontSize="medium" href="tel:+9720506225790" sx={{ cursor: "pointer", ...boxSX }} />
           <Typography component="a" href="tel:+9720506225790" sx={boxSX}>
@@ -254,14 +260,15 @@ const Navbar = () => {
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <ButtonHashLink to="/#contact" text="צרי קשר" />
           <ButtonHashLink to="/#aboutMe" text="  קצת עליי" />
+          <ButtonHashLink to="/treatments" text=" טיפולים " />
 
-          <Button
+          {/*    <Button
             className="buttonLinkNav"
             onClick={handleClick}
             sx={{ fontWeight: theme.typography.fontWeightBold, ...buttonSX }}>
             <p>טיפולים</p>
-          </Button>
-          <Menu
+          </Button> */}
+          {/* <Menu
             id="basic-menu"
             anchorEl={anchorEl}
             open={open}
@@ -283,11 +290,13 @@ const Navbar = () => {
             </MenuItem>
             <MenuItem onClick={handleClose}>איפור קבוע בשפתיים</MenuItem>
             <MenuItem onClick={handleClose}>הדמיית זקיקי שיער ונמשים</MenuItem>
-          </Menu>
+          </Menu> */}
           <ButtonHashLink to="/#about" text="  אודות" />
           <ButtonHashLink to="/#home" text="  בית" />
         </Box>
-        <img src={logo} alt="logo" width="150" />
+        <NavHashLink to="/#home">
+          <img src={logo} alt="logo" width="150" />
+        </NavHashLink>
       </StyledToolbar>
     </AppBar>
   );

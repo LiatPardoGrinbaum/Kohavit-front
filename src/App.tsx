@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import { theme } from "./theme";
 import Navbar from "./components/Navbar/Navbar";
 import HomeMain from "./pages/HomeMain";
+import Treatments from "./pages/Treatments";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
 
         <Switch>
           <Route path="/" exact component={HomeMain} />
+          <Route path="/treatments" component={Treatments} />
 
           {/* <Route path="/eyebrows" component={Eyebrows} />
           <Route path="/lips" component={Lips} />
