@@ -1,8 +1,10 @@
 import React from "react";
 import { Box, styled, Typography } from "@mui/material";
 import bgtreatments from "../assets/bgtreatments.png";
+import { Container } from "@mui/material";
+import TreatmentCard from "../components/TreatmentCard/TreatmentCard";
 
-const CustomBox = styled(Box)(({ theme }) => ({
+const MainBox = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -11,7 +13,7 @@ const CustomBox = styled(Box)(({ theme }) => ({
   textAlign: "center",
   width: "100%",
   height: "350px",
-
+  backgroundColor: "white",
   // padding: theme.spacing(0, 4, 0, 4),
   padding: "0",
   marginTop: "100px",
@@ -20,6 +22,23 @@ const CustomBox = styled(Box)(({ theme }) => ({
     flexDirection: "column-reverse",
     alignItems: "center",
     textAlign: "center",
+  },
+}));
+
+const TreatmentsBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center",
+  gap: "1rem",
+  width: "80%",
+  marginTop: theme.spacing(5),
+  marginBottom: theme.spacing(5),
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+  },
+  [theme.breakpoints.down("sm")]: {
+    marginBottom: "0",
+    flexDirection: "column",
   },
 }));
 
@@ -34,10 +53,11 @@ const Treatments = () => {
         backgroundImage: "linear-gradient(to right, #bba296 0%, white 100%)",
         // paddingTop: "2rem",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "flex-start",
+        flexDirection: "column",
       }}>
-      <CustomBox>
+      <MainBox>
         <Box
           sx={{
             display: "flex",
@@ -50,9 +70,18 @@ const Treatments = () => {
             width: "100%",
             height: "100%",
           }}>
-          <Typography variant="h2">טיפולים</Typography>
+          <Typography variant="h2" fontWeight="500" sx={{ textShadow: "2px 2px 5px white" }}>
+            טיפולים
+          </Typography>
         </Box>
-      </CustomBox>
+      </MainBox>
+      <Container maxWidth="xl" sx={{ background: "white", padding: "32px", display: "flex", justifyContent: "center" }}>
+        <TreatmentsBox>
+          <TreatmentCard></TreatmentCard>
+          <TreatmentCard></TreatmentCard>
+          <TreatmentCard></TreatmentCard>
+        </TreatmentsBox>
+      </Container>
     </Box>
   );
 };

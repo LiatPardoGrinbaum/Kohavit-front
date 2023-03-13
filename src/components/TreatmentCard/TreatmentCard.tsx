@@ -5,11 +5,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import eyebrows from "../../assets/eyebrows/eyebrows.jpg";
 
 const TreatmentCard = () => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia sx={{ height: 140 }} image="/static/images/cards/contemplative-reptile.jpg" title="green iguana" />
+    <Card sx={{ maxWidth: 350 }}>
+      <CardMedia sx={{ height: 200 }} image={eyebrows} title="eyebrows" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Lizard
