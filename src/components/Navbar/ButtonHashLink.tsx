@@ -30,7 +30,7 @@ const ButtonHashLink = (props: LinkProps) => {
       component={NavHashLink}
       to={props.to}
       sx={buttonSX}
-      activeStyle={{ color: "white", background: theme.palette.primary.light }}
+      activeStyle={{ color: "white", background: theme.palette.secondary.main }}
       scroll={(el) => scrollWithOffset(el)}
       onClick={props.onClick}>
       {props.text}

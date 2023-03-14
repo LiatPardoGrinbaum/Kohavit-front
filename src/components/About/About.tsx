@@ -1,8 +1,8 @@
 import { Box, Container } from "@mui/material";
-import Paragraph from "../../../styles/Paragraph";
-import Title from "../../../styles/Title";
+import Paragraph from "../../styles/Paragraph";
+import Title from "../../styles/Title";
 // import { theme } from "../../../theme";
-import Divider from "../../Divider/Divider";
+import Divider from "../Divider/Divider";
 
 const About = () => {
   return (
@@ -17,11 +17,11 @@ const About = () => {
             padding: "0.5rem",
             direction: "rtl",
           }}>
-          <Title fontColor="secondary.main" fontSize="2rem">
+          <Title fontColor="primary.dark" fontSize="2rem">
             מה זה בעצם איפור קבוע?
           </Title>
           <Divider />
-          <Paragraph fontColor="secondary.main">
+          <Paragraph fontColor="primary.dark">
             <strong>לשנות תוכן!!</strong>
             איפור קבוע הוא אחד הטרנדים החמים ביותר כיום בעולם בכלל ובארץ בפרט, ואם תשאלו אותנו, הטרנד הזה לא הולך לשום
             מקום בזמן הקרוב. האיפור הקבוע, המכונה גם כטיפול מיקרופיגמנטציה, הוא טכניקה קוסמטית הפועלת בעזרת מכונת

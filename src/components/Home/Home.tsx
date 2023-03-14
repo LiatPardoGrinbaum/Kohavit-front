@@ -105,7 +105,7 @@ const Home = () => {
             component="a"
             href="tel:+9720506225790"
             sx={{
-              backgroundColor: "primary.light",
+              backgroundColor: "secondary.main",
               marginTop: "1.2rem",
               width: "300px",
               [theme.breakpoints.down("sm")]: {

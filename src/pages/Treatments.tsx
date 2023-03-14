@@ -3,6 +3,9 @@ import { Box, styled, Typography } from "@mui/material";
 import bgtreatments from "../assets/bgtreatments.png";
 import { Container } from "@mui/material";
 import TreatmentCard from "../components/TreatmentCard/TreatmentCard";
+import Title from "../styles/Title";
+import Divider from "../components/Divider/Divider";
+import DividerWhite from "../components/Divider/DividerWhite";
 
 const MainBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -63,6 +66,7 @@ const Treatments = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            flexDirection: "column",
             backgroundImage: `url(${bgtreatments})`,
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
@@ -70,12 +74,28 @@ const Treatments = () => {
             width: "100%",
             height: "100%",
           }}>
-          <Typography variant="h2" fontWeight="500" sx={{ textShadow: "2px 2px 5px white" }}>
+          {" "}
+          <DividerWhite />
+          <Typography color="primary.dark" variant="h2" fontWeight="600" sx={{ textShadow: "2px 2px 5px #fff" }}>
             טיפולים
           </Typography>
+          <DividerWhite />
         </Box>
       </MainBox>
-      <Container maxWidth="xl" sx={{ background: "white", padding: "32px", display: "flex", justifyContent: "center" }}>
+      <Container
+        maxWidth="xl"
+        sx={{
+          background: "white",
+          padding: "32px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        }}>
+        <Title fontColor="primary.dark" fontSize="2rem">
+          הטיפולים שלנו
+        </Title>
+        <Divider />
         <TreatmentsBox>
           <TreatmentCard></TreatmentCard>
           <TreatmentCard></TreatmentCard>

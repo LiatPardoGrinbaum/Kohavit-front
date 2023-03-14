@@ -1,15 +1,21 @@
 import { createTheme } from "@mui/material";
 export const theme = createTheme({
   palette: {
+    common: {
+      black: "#000",
+      white: "#fff",
+    },
     primary: {
       // main: "#72574a",
       // main: "#703b39",
-      main: "#ad608c",
-      light: "#cc7c9f",
+      // main: "#ad608c", //dark pink
+      // light: "#cc7c9f", //light pink
+      main: "#bba296",
+      dark: "#72574a",
     },
     secondary: {
-      main: "#bba296",
-      light: "#df9e9e",
+      main: "#cc7c9f",
+      dark: "#ad608c",
     },
 
     error: {

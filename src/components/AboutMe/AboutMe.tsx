@@ -1,12 +1,12 @@
 import { Box, Container, Typography } from "@mui/material";
 // import Paragraph from "../../../styles/Paragraph";
-import Title from "../../../styles/Title";
-import DividerWhite from "../../Divider/DividerWhite";
-import { theme } from "../../../theme";
+import Title from "../../styles/Title";
+import DividerWhite from "../Divider/DividerWhite";
+import { theme } from "../../theme";
 
 const AboutMe = () => {
   return (
-    <Box minHeight="90vh" bgcolor="secondary.main">
+    <Box minHeight="90vh" bgcolor="primary.main">
       <Container>
         <Box
           sx={{
@@ -27,7 +27,7 @@ const AboutMe = () => {
               sx={{
                 width: "50%",
                 fontSize: "1.4rem",
-                color: "white",
+                color: "common.white",
 
                 [theme.breakpoints.down("sm")]: {
                   fontSize: "1.5rem",
