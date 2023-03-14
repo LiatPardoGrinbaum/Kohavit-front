@@ -169,11 +169,11 @@ const Navbar = () => {
           </AppBar>
 
           <Box display="flex" flexDirection="column">
-            <ButtonHashLink to="/#home" text="בית" onClick={onCloseHandler} />
-            <ButtonHashLink to="/#about" text=" אודות " onClick={onCloseHandler} />
-            <ButtonHashLink to="/#treatments" text=" טיפולים " onClick={onCloseHandler} />
-            <ButtonHashLink to="/#contact" text="צרי קשר" onClick={onCloseHandler} />
-            <ButtonHashLink to="/#aboutMe" text="  קצת עליי" onClick={onCloseHandler} />
+            <ButtonHashLink linkto="/#home" text="בית" onClick={onCloseHandler} />
+            <ButtonHashLink linkto="/#about" text=" אודות " onClick={onCloseHandler} />
+            <ButtonHashLink linkto="/#treatments" text=" טיפולים " onClick={onCloseHandler} />
+            <ButtonHashLink linkto="/#contact" text="צרי קשר" onClick={onCloseHandler} />
+            <ButtonHashLink linkto="/#aboutMe" text="  קצת עליי" onClick={onCloseHandler} />
           </Box>
         </Dialog>
 
@@ -258,9 +258,9 @@ const Navbar = () => {
       */}
 
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
-          <ButtonHashLink to="/#contact" text="צרי קשר" />
-          <ButtonHashLink to="/#aboutMe" text="  קצת עליי" />
-          <ButtonHashLink to="/treatments" text=" טיפולים " />
+          <ButtonHashLink linkto="/#contact" text="צרי קשר" />
+          <ButtonHashLink linkto="/#aboutMe" text="  קצת עליי" />
+          <ButtonHashLink linkto="/treatments" text=" טיפולים " />
 
           {/*    <Button
             className="buttonLinkNav"
@@ -291,8 +291,8 @@ const Navbar = () => {
             <MenuItem onClick={handleClose}>איפור קבוע בשפתיים</MenuItem>
             <MenuItem onClick={handleClose}>הדמיית זקיקי שיער ונמשים</MenuItem>
           </Menu> */}
-          <ButtonHashLink to="/#about" text="  אודות" />
-          <ButtonHashLink to="/#home" text="  בית" />
+          <ButtonHashLink linkto="/#about" text="  אודות" />
+          <ButtonHashLink linkto="/#home" text="  בית" />
         </Box>
         <NavHashLink to="/#home">
           <img src={logo} alt="logo" width="150" />

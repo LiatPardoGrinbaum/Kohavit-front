@@ -113,8 +113,7 @@ const Home = () => {
               },
             }}>
             <Typography
-              component="a"
-              href="tel:+9720506225790"
+              component="p"
               color="primary.main"
               sx={{
                 fontSize: "1.3rem",

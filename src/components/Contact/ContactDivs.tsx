@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const contactWays = [
   {
-    sectionId: "phone",
+    contactId: "phone",
     buttonIcon: (
       <Button sx={{ borderRadius: "50%", width: "80px", height: "80px" }} variant="contained">
         <Phone sx={{ color: "common.white" }} />
@@ -24,7 +24,7 @@ const contactWays = [
     text: <Paragraph fontColor="primary.dark">050-622-5490</Paragraph>,
   },
   {
-    sectionId: "whatsapp",
+    contactId: "whatsapp",
     buttonIcon: (
       <Button sx={{ borderRadius: "50%", width: "80px", height: "80px" }} variant="contained">
         <WhatsApp sx={{ color: "common.white" }} />
@@ -33,7 +33,7 @@ const contactWays = [
     text: <Paragraph fontColor="primary.dark">הודעת וואטספ</Paragraph>,
   },
   {
-    sectionId: "location",
+    contactId: "location",
     buttonIcon: (
       <Button sx={{ borderRadius: "50%", width: "80px", height: "80px" }} variant="contained">
         <LocationOn sx={{ color: "common.white" }} />
@@ -42,7 +42,7 @@ const contactWays = [
     text: <Paragraph fontColor="primary.dark">להוסיף כתובת בחולון</Paragraph>,
   },
   {
-    sectionId: "mail",
+    contactId: "mail",
     buttonIcon: (
       <Button sx={{ borderRadius: "50%", width: "80px", height: "80px" }} variant="contained">
         <AlternateEmail sx={{ color: "common.white" }} />
@@ -57,7 +57,7 @@ const ContactDivs = () => {
     <Grid container spacing={2} sx={{ marginTop: "2rem", direction: { xs: "row", sm: "column" } }}>
       {contactWays.map((contact) => {
         return (
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3} key={contact.contactId}>
             <Item>
               {contact.buttonIcon}
               {contact.text}

@@ -13,7 +13,7 @@ const buttonSX = {
 };
 
 type LinkProps = {
-  to: string;
+  linkto: string;
   text: string;
   onClick?: React.MouseEventHandler | undefined;
 };
@@ -28,7 +28,7 @@ const ButtonHashLink = (props: LinkProps) => {
     <Button
       className="buttonLinkNav"
       component={NavHashLink}
-      to={props.to}
+      to={props.linkto}
       sx={buttonSX}
       activeStyle={{ color: "white", background: theme.palette.secondary.main }}
       scroll={(el) => scrollWithOffset(el)}

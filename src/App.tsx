@@ -5,6 +5,9 @@ import { theme } from "./theme";
 import Navbar from "./components/Navbar/Navbar";
 import HomeMain from "./pages/HomeMain";
 import Treatments from "./pages/Treatments";
+import Eyebrows from "./pages/Eyebrows";
+import Lips from "./pages/Lips";
+import Freckles from "./pages/Freckles";
 
 const App: React.FC = () => {
   return (
@@ -15,6 +18,9 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/" exact component={HomeMain} />
           <Route path="/treatments" component={Treatments} />
+          <Route path="/eyebrows" component={Eyebrows} />
+          <Route path="/lips" component={Lips} />
+          <Route path="/freckles" component={Freckles} />
 
           {/* <Route path="/eyebrows" component={Eyebrows} />
           <Route path="/lips" component={Lips} />
