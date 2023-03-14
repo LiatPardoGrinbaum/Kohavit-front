@@ -5,10 +5,24 @@ import Title from "../../styles/Title";
 import Divider from "../Divider/Divider";
 import ContactForm from "./ContactForm";
 import ContactDivs from "./ContactDivs";
+import contactbg from "../../assets/contactbg.png";
+
+const transparentBg = {
+  // display: "flex",
+  // justifyContent: "center",
+  // alignItems: "center",
+  // flexDirection: "column",
+  backgroundImage: `url(${contactbg})`,
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  // width: "100%",
+  // height: "100%",
+};
 
 const Contact = () => {
   return (
-    <Box minHeight="100vh" bgcolor="common.white">
+    <Box minHeight="100vh" bgcolor="common.white" sx={transparentBg}>
       <Container>
         <Box
           sx={{
@@ -16,7 +30,7 @@ const Contact = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            padding: "0.5rem",
+            padding: "0.5rem 0",
             direction: "rtl",
             gap: "1rem",
           }}>
@@ -25,9 +39,24 @@ const Contact = () => {
           </Title>
           <Divider />
           <ContactDivs />
-          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "80%" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "100%",
+              flexDirection: { xs: "column", md: "row" },
+            }}>
             <ContactForm />
-            <p>lol</p>
+            <iframe
+              title="map location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13531.63327494852!2d34.79562943663796!3d32.01759706213614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b4bb0c33bf39%3A0xfbdd79640525e72d!2z15fXldec15XXnw!5e0!3m2!1siw!2sil!4v1678799013436!5m2!1siw!2sil"
+              width="600"
+              height="450"
+              style={{ border: "0" }}
+              allowFullScreen={undefined}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"></iframe>
           </Box>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eum, iusto voluptates fugit quas
