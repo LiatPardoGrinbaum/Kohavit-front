@@ -7,6 +7,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import eyebrows from "../../assets/eyebrows/eyebrows.jpg";
 
+// type treatmentsCardType={
+//   title:"string",
+//   content:"string",
+
+// }
+
 const TreatmentCard = () => {
   return (
     <Card sx={{ maxWidth: 350 }}>
@@ -21,8 +27,7 @@ const TreatmentCard = () => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small">גלי עוד</Button>
       </CardActions>
     </Card>
   );

@@ -6,6 +6,7 @@ import TreatmentCard from "../components/TreatmentCard/TreatmentCard";
 import Title from "../styles/Title";
 import Divider from "../components/Divider/Divider";
 import DividerWhite from "../components/Divider/DividerWhite";
+import treatmentCardsInfo from "../constants/treatmentCardsInfo";
 
 const MainBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -48,6 +49,7 @@ const TreatmentsBox = styled(Box)(({ theme }) => ({
 const Treatments = () => {
   return (
     <Box
+      id="treatments"
       minHeight="100vh"
       width="100%"
       sx={{
@@ -97,9 +99,9 @@ const Treatments = () => {
         </Title>
         <Divider />
         <TreatmentsBox>
-          <TreatmentCard></TreatmentCard>
-          <TreatmentCard></TreatmentCard>
-          <TreatmentCard></TreatmentCard>
+          {treatmentCardsInfo.map((treatmentInfo) => {
+            return <TreatmentCard />;
+          })}
         </TreatmentsBox>
       </Container>
     </Box>

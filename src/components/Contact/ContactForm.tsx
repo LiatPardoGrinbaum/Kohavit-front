@@ -37,8 +37,8 @@ const ContactForm = () => {
                 <TextField multiline rows={3} placeholder="כתבי פה את ההודעה" variant="outlined" fullWidth required />
               </Grid>
               <Grid item xs={12}>
-                <Button type="submit" variant="contained" color="primary" fullWidth>
-                  Submit
+                <Button type="submit" variant="contained" sx={{ color: "white" }} fullWidth>
+                  שליחה
                 </Button>
               </Grid>
             </Grid>

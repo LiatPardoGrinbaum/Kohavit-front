@@ -26,10 +26,6 @@ import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import { StyledToolbar, CallBox, CustomMenuIcon } from "./styles";
 import { NavHashLink } from "react-router-hash-link";
-// import { Link } from "react-router-dom";
-// import { NavHashLink } from "react-router-hash-link";
-// import ExpandLess from "@mui/icons-material/ExpandLess";
-// import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const boxSX = {
   textDecoration: "none",
@@ -116,6 +112,7 @@ const Navbar = () => {
         //   paddingRight: "16px",
         // },
         transition: "0.5s",
+        width: "100%",
       }}>
       <StyledToolbar>
         <CallBox
@@ -171,7 +168,8 @@ const Navbar = () => {
           <Box display="flex" flexDirection="column">
             <ButtonHashLink linkto="/#home" text="בית" onClick={onCloseHandler} />
             <ButtonHashLink linkto="/#about" text=" אודות " onClick={onCloseHandler} />
-            <ButtonHashLink linkto="/#treatments" text=" טיפולים " onClick={onCloseHandler} />
+            <ButtonHashLink linkto="/treatments#treatments" text="טיפולים " onClick={onCloseHandler} />
+
             <ButtonHashLink linkto="/#contact" text="צרי קשר" onClick={onCloseHandler} />
             <ButtonHashLink linkto="/#aboutMe" text="  קצת עליי" onClick={onCloseHandler} />
           </Box>
@@ -260,7 +258,7 @@ const Navbar = () => {
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <ButtonHashLink linkto="/#contact" text="צרי קשר" />
           <ButtonHashLink linkto="/#aboutMe" text="  קצת עליי" />
-          <ButtonHashLink linkto="/treatments" text=" טיפולים " />
+          <ButtonHashLink linkto="/treatments#treatments" text=" טיפולים " />
 
           {/*    <Button
             className="buttonLinkNav"

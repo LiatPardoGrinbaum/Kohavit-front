@@ -31,7 +31,7 @@ const HomeMain = () => {
       {/* <Toolbar /> */}
       {sections.map((section) => {
         return (
-          <Box id={section.sectionId} key={section.sectionId}>
+          <Box id={section.sectionId} key={section.sectionId} width="100%">
             {section.component}
           </Box>
         );
