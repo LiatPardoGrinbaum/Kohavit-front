@@ -8,6 +8,7 @@ import Treatments from "./pages/Treatments";
 import Eyebrows from "./pages/Eyebrows";
 import Lips from "./pages/Lips";
 import Freckles from "./pages/Freckles";
+import Footer from "./components/Footer/Footer";
 
 const App: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: React.FC = () => {
           <Route path="/lips" component={Lips} />
           <Route path="/qa" component={QandA} />  */}
         </Switch>
+        <Footer />
       </BrowserRouter>
     </Box>
   );
