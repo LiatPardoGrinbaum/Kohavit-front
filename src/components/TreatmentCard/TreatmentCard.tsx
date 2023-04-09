@@ -36,7 +36,9 @@ const TreatmentCard = (props: treatmentsCardType) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">גלי עוד</Button>
+        <Button size="small" href={props.link}>
+          גלי עוד
+        </Button>
       </CardActions>
     </Card>
   );

@@ -1,12 +1,14 @@
 import React from "react";
-import { Box, styled, Typography } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import bgtreatments from "../assets/bgtreatments.png";
 import { Container } from "@mui/material";
 import TreatmentCard from "../components/TreatmentCard/TreatmentCard";
 import Title from "../styles/Title";
 import Divider from "../components/Divider/Divider";
-import DividerWhite from "../components/Divider/DividerWhite";
+
 import treatments from "../constants/treatmentCardsInfo";
+import PageHeading from "../components/PageHeading/PageHeading";
+import PageContainer from "../components/PageContainer/PageContainer";
 
 const MainBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -48,41 +50,9 @@ const TreatmentsBox = styled(Box)(({ theme }) => ({
 
 const Treatments = () => {
   return (
-    <Box
-      id="treatments"
-      minHeight="100vh"
-      width="100%"
-      sx={{
-        position: "relative",
-        // backgroundColor: "primary.light",
-        backgroundImage: "linear-gradient(to right, #bba296 0%, white 100%)",
-        // paddingTop: "2rem",
-        display: "flex",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-        flexDirection: "column",
-      }}>
+    <PageContainer>
       <MainBox>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-            backgroundImage: `url(${bgtreatments})`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            width: "100%",
-            height: "100%",
-          }}>
-          {" "}
-          <DividerWhite />
-          <Typography color="primary.dark" variant="h2" fontWeight="600" sx={{ textShadow: "2px 2px 5px #fff" }}>
-            טיפולים
-          </Typography>
-          <DividerWhite />
-        </Box>
+        <PageHeading image={bgtreatments} title="טיפולים" />
       </MainBox>
       <Container
         maxWidth="xl"
@@ -112,7 +82,7 @@ const Treatments = () => {
           })}
         </TreatmentsBox>
       </Container>
-    </Box>
+    </PageContainer>
   );
 };
 
