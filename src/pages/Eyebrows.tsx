@@ -2,8 +2,9 @@ import { Box, Typography, styled } from "@mui/material";
 import PageHeading from "../components/PageHeading/PageHeading";
 import bgtreatments from "../assets/bgtreatments.png";
 import PageContainer from "../components/PageContainer/PageContainer";
-import Divider from "../components/Divider/Divider";
+// import Divider from "../components/Divider/Divider";
 import { SectionContainer } from "../styles/SectionContainer";
+import { eyebrows } from "../constants/eyebrowsPage";
 
 const MainBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -34,10 +35,10 @@ const Eyebrows = () => {
       </MainBox>
       <SectionContainer>
         <Box sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-            גבות טבעיות באיפור קבוע - כל השיטות
+          <Typography variant="h6" sx={{ fontWeight: "bold", color: "primary.dark" }}>
+            {eyebrows.title}
           </Typography>
-          <Divider />
+          {/* <Divider /> */}
         </Box>
         <Box
           sx={{
@@ -45,16 +46,37 @@ const Eyebrows = () => {
 
             fontStyle: "italic",
             alignSelf: "center",
-            padding: { xs: "1rem", lg: "2rem 6rem" },
+            // padding: { xs: "1rem", lg: "2rem 6rem" },
             margin: "0.5rem",
-            borderRadius: "1rem",
-            borderBottom: `5px solid #EDA800`,
-            borderTop: `5px solid #EDA800`,
+            // borderRadius: "1rem",
+            // borderBottom: `5px solid #EDA800`,
+            // borderTop: `5px solid #EDA800`,
           }}>
           <Typography sx={{ whiteSpace: "break-spaces", fontSize: "1.5rem", textAlign: "center" }}>
-            כולן רוצות גבות טבעיות, יפות ומלאות, אבל לפעמים הגבות פשוט לא נראות כמו שאנחנו חולמות.<br></br> החדשות
-            הטובות הן שבהחלט אפשר לשנות זאת באמצעות שיטות חדשניות.
+            {eyebrows.description}
           </Typography>
+        </Box>
+        <Box
+          sx={{
+            alignSelf: "flex-start",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start ",
+            flexDirection: "column",
+            gap: "0.5rem",
+          }}>
+          {/* //! add map for list here */}
+          <Box sx={{ width: "100%" }}>
+            <Typography sx={{ fontWeight: "bold", color: "primary.dark", fontSize: "25px" }}>
+              {eyebrows.methods[0].subtitle}
+            </Typography>
+            {/*       <Typography sx={{ whiteSpace: "break-spaces" }} dangerouslySetInnerHTML={{ __html: text.neuroConsultation1 }}>
+      
+          </Typography> */}
+
+            <Typography sx={{ whiteSpace: "break-spaces" }}>{eyebrows.methods[0].text}</Typography>
+          </Box>
         </Box>
       </SectionContainer>
     </PageContainer>
