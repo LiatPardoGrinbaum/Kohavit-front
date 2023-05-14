@@ -23,7 +23,6 @@ const PageHeading = (props: headingProps) => {
         height: "100%",
       }}>
       {" "}
-      <DividerWhite />
       <Typography color="primary.dark" variant="h2" fontWeight="600" sx={{ textShadow: "2px 2px 5px #fff" }}>
         {props.title}
       </Typography>
