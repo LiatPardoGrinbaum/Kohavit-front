@@ -68,14 +68,22 @@ const Eyebrows = () => {
           }}>
           {/* //! add map for list here */}
           <Box sx={{ width: "100%" }}>
-            <Typography sx={{ fontWeight: "bold", color: "primary.dark", fontSize: "25px" }}>
-              {eyebrows.methods[0].subtitle}
-            </Typography>
-            {/*       <Typography sx={{ whiteSpace: "break-spaces" }} dangerouslySetInnerHTML={{ __html: text.neuroConsultation1 }}>
-      
-          </Typography> */}
+            {eyebrows.methods.map((method) => {
+              return (
+                <>
+                  <Typography
+                    sx={{ fontWeight: "bold", color: "primary.dark", fontSize: "25px" }}
+                    key={method.subtitle}>
+                    {method.subtitle}
+                  </Typography>
+                  <Typography sx={{ whiteSpace: "break-spaces" }}>{method.text}</Typography>
+                </>
+              );
+            })}
 
-            <Typography sx={{ whiteSpace: "break-spaces" }}>{eyebrows.methods[0].text}</Typography>
+            <Typography
+              sx={{ whiteSpace: "break-spaces" }}
+              dangerouslySetInnerHTML={{ __html: eyebrows.summary }}></Typography>
           </Box>
         </Box>
       </SectionContainer>
