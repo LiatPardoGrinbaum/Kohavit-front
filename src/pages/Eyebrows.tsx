@@ -66,7 +66,6 @@ const Eyebrows = () => {
             flexDirection: "column",
             gap: "0.5rem",
           }}>
-          {/* //! add map for list here */}
           <Box sx={{ width: "100%" }}>
             {eyebrows.methods.map((method) => {
               return (
