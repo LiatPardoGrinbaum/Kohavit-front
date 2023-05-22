@@ -5,6 +5,7 @@ import PageContainer from "../components/PageContainer/PageContainer";
 // import Divider from "../components/Divider/Divider";
 import { SectionContainer } from "../styles/SectionContainer";
 import { eyebrows } from "../constants/eyebrowsPage";
+import Divider from "../components/Divider/Divider";
 
 const MainBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -38,8 +39,8 @@ const Eyebrows = () => {
           <Typography variant="h6" sx={{ fontWeight: "bold", color: "primary.dark" }}>
             {eyebrows.title}
           </Typography>
-          {/* <Divider /> */}
         </Box>
+        <Divider />
         <Box
           sx={{
             width: { sm: "100%", lg: "80%" },
@@ -52,10 +53,11 @@ const Eyebrows = () => {
             // borderBottom: `5px solid #EDA800`,
             // borderTop: `5px solid #EDA800`,
           }}>
-          <Typography sx={{ whiteSpace: "break-spaces", fontSize: "1.5rem", textAlign: "center" }}>
+          <Typography sx={{ whiteSpace: "break-spaces", fontSize: "1.5rem", textAlign: "center", marginTop: "1.5rem" }}>
             {eyebrows.description}
           </Typography>
         </Box>
+        <Divider />
         <Box
           sx={{
             alignSelf: "flex-start",
@@ -65,6 +67,7 @@ const Eyebrows = () => {
             alignItems: "flex-start ",
             flexDirection: "column",
             gap: "0.5rem",
+            marginTop: "1.5rem",
           }}>
           <Box sx={{ width: "100%" }}>
             {eyebrows.methods.map((method) => {
