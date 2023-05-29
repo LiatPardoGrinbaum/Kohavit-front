@@ -75,13 +75,6 @@ const Contact = () => {
                 referrerPolicy="no-referrer-when-downgrade"></iframe>
             </Box>
           </Box>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eum, iusto voluptates fugit quas
-            dolorem rerum ipsa quia totam quibusdam blanditiis dolores unde placeat quos commodi, rem, perferendis
-            sapiente repellat!Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quod maxime rem
-            corrupti? Vel officia, exercitationem ea voluptates, assumenda quod maiores quam enim nisi itaque illum
-            fugiat dolores hic similique.
-          </p>
         </Box>
       </Container>
     </Box>

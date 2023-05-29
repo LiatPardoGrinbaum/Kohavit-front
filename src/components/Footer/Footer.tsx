@@ -1,20 +1,35 @@
-import { Box, Link, Typography } from "@mui/material";
-import React from "react";
+import { Box, Typography } from "@mui/material";
+import { theme } from "../../theme";
 
 const Footer = () => {
   return (
-    <Box>
-      <Typography variant="h6">- להוסיף פרטים - צרי קשר</Typography>
-      <Typography variant="h6"> להוסיף קישורים לטיפולים השונים ועמוד הבית</Typography>
-      <Typography variant="h6">Developed and desiged by </Typography>
-      <Link
-        variant="h6"
-        href="https://liat-portfolio.netlify.app/"
-        underline="none"
+    <Box
+      sx={{
+        background: theme.palette.primary.dark,
+        minHeight: "10vh",
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        padding: "1rem",
+      }}>
+      <Typography sx={{ fontSize: "14px", fontFamily: `'Poppins', sans-serif`, color: "white" }}>
+        Website designed and developed by
+      </Typography>
+      <Typography
+        component="a"
+        href="https://github.com/LiatPardoGrinbaum"
         target="blank"
-        sx={{ color: "black", "&:hover": { color: "white" } }}>
-        &copy; Liat Pardo Grinbaum {new Date().getUTCFullYear()} &copy;{" "}
-      </Link>
+        sx={{
+          color: "white",
+          fontSize: "16px",
+          fontFamily: `'Poppins', sans-serif`,
+          textDecoration: "none",
+          "&:hover": { color: "primary.main", fontWeight: "bold" },
+        }}>
+        Liat Pardo Grinbaum {new Date().getUTCFullYear()}
+      </Typography>
     </Box>
   );
 };
