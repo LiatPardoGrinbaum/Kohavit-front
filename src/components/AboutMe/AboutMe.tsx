@@ -1,13 +1,19 @@
 import { Box, Typography } from "@mui/material";
 // import Paragraph from "../../../styles/Paragraph";
 import Title from "../../styles/Title";
-import DividerWhite from "../Divider/DividerWhite";
 import { theme } from "../../theme";
 import photo from "../../assets/homephoto2.jpg";
+import DividerWhite from "../Divider/DividerWhite";
 
 const AboutMe = () => {
   return (
-    <Box minHeight="90vh" bgcolor="primary.main" sx={{ display: "flex", justifyContent: "center" }}>
+    <Box
+      minHeight="90vh"
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        background: "linear-gradient(to left, #bba296 0%, white 100%)",
+      }}>
       <Box
         sx={{
           display: "flex",
@@ -17,7 +23,7 @@ const AboutMe = () => {
           padding: "0.5rem",
           direction: "rtl",
         }}>
-        <Title fontColor="white" fontSize="2rem">
+        <Title fontColor="primary.dark" fontSize="2rem">
           קצת עליי
         </Title>
         <DividerWhite />
@@ -35,7 +41,7 @@ const AboutMe = () => {
             sx={{
               width: "50%",
               fontSize: "1.4rem",
-              color: "common.white",
+              color: "primary.dark",
               padding: "1.5rem",
               [theme.breakpoints.down("sm")]: {
                 fontSize: "1.5rem",
