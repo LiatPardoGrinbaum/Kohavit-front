@@ -3,7 +3,7 @@ import { Box, styled, Button, Typography } from "@mui/material";
 import { theme } from "../../theme";
 import Title from "../../styles/Title";
 // import bgHome from "../../../assets/homebgstars.png";
-import homephoto from "../../assets/homephoto2.jpg";
+import homephoto from "../../assets/homephoto11.jpg";
 import title from "../../assets/maintitle.png";
 // import homephoto2 from "../../../assets/homephoto2.jpg";
 import "../Home/style.css";

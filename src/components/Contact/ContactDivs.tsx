@@ -17,7 +17,7 @@ const contactWays = [
   {
     contactId: "phone",
     buttonIcon: (
-      <Button sx={{ borderRadius: "50%", width: "80px", height: "80px" }} variant="contained">
+      <Button sx={{ borderRadius: "50%", width: "60px", height: "60px" }} variant="contained">
         <Phone sx={{ color: "common.white" }} />
       </Button>
     ),
@@ -26,7 +26,7 @@ const contactWays = [
   {
     contactId: "whatsapp",
     buttonIcon: (
-      <Button sx={{ borderRadius: "50%", width: "80px", height: "80px" }} variant="contained">
+      <Button sx={{ borderRadius: "50%", width: "60px", height: "60px" }} variant="contained">
         <WhatsApp sx={{ color: "common.white" }} />
       </Button>
     ),
@@ -35,7 +35,7 @@ const contactWays = [
   {
     contactId: "location",
     buttonIcon: (
-      <Button sx={{ borderRadius: "50%", width: "80px", height: "80px" }} variant="contained">
+      <Button sx={{ borderRadius: "50%", width: "60px", height: "60px" }} variant="contained">
         <LocationOn sx={{ color: "common.white" }} />
       </Button>
     ),
@@ -44,7 +44,7 @@ const contactWays = [
   {
     contactId: "mail",
     buttonIcon: (
-      <Button sx={{ borderRadius: "50%", width: "80px", height: "80px" }} variant="contained">
+      <Button sx={{ borderRadius: "50%", width: "60px", height: "60px" }} variant="contained">
         <AlternateEmail sx={{ color: "common.white" }} />
       </Button>
     ),

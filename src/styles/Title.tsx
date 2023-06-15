@@ -1,15 +1,5 @@
 import { Typography } from "@mui/material";
-import { theme } from "../theme";
-
-//  const TitleStyle = styled(Typography)({
-//   fontSize: "2rem",
-//   color: "white",
-//   fontFamily: ` 'Secular One', sans-serif`,
-//   margin: theme.spacing(4, 0, 4, 0),
-//   [theme.breakpoints.down("sm")]: {
-//     fontSize: "1.5rem",
-//   },
-// });
+// import { theme } from "../theme";
 
 type TitleProp = {
   children: string;
@@ -27,9 +17,9 @@ const Title = (props: TitleProp) => {
 
           fontFamily: props.fontFamily,
           // margin: theme.spacing(4, 0, 0, 0),
-          [theme.breakpoints.down("sm")]: {
-            fontSize: "1.5rem",
-          },
+          // [theme.breakpoints.down("sm")]: {
+          //   fontSize: "1.5rem",
+          // },
         }}>
         {props.children}
       </Typography>
